@@ -1,4 +1,4 @@
-# [LEMMA-RCA Benchmark](https://lemma-rca.github.io/)
+# [LEMMA-RCA](https://lemma-rca.github.io/)
 
 
 ### File directory
