@@ -4,7 +4,7 @@
 
 ### Step 1: Preprocess data from original elasticsearch log (json format) to log messages
 ```terminal command
-python3 json2message.py
+python json2message.py
 ```
 
 ***Notice***: Some of the arguments may need to change
@@ -18,9 +18,9 @@ python3 json2message.py
 ### Step 2: Usa Drain to parse both node-level and pod-level log messages
 
 ```terminal command
-python3 drain3_parse.py ./output/log_prep_node/  -o "./drain3_result/node"
+python drain3_parse.py ./output/log_prep_node/  -o "./drain3_result/node"
 
-python3 drain3_parse.py ./output/log_prep_pod/   -o "./drain3_result/pod"
+python drain3_parse.py ./output/log_prep_pod/   -o "./drain3_result/pod"
 
 ```
 
@@ -29,3 +29,13 @@ python3 drain3_parse.py ./output/log_prep_pod/   -o "./drain3_result/pod"
     --output_dir, default="./drain3_result/node"   or "./drain3_result/pod"
   
 ```
+
+### Step 3: Log feature extraction
+
+```terminal command
+python log_frequency_extraction.py --log_dir ./input_path/  --output_dir ./output_path --data_dir ./output_path
+
+python log_golden_frequency.py --log_dir ./input_path/  --output_dir ./output_path --data_dir ./output_path
+```
+
+
