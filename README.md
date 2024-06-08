@@ -21,5 +21,7 @@ AIOps
         --|drain3_parse.py
         --|README.md
         --|drain3.yaml
+        --|log_frequency_extraction.py
+        --|log_golden_frequency.py
 ```
 ###
