@@ -1,0 +1,34 @@
+POD_NAMES:
+  - all
+  
+DRAIN3:
+  SNAPSHOT:
+    snapshot_interval_minutes: 10
+    compress_state: True
+  MASKING:
+    masking: []
+    mask_prefix: "<:"
+    mask_suffix: ":>"
+  DRAIN:
+    # Similarity threshold
+    sim_th: 0.4 
+    # Depth of all leaf nodes
+    depth: 4
+    max_children: 100
+    max_clusters: 1024
+    #extra_delimiters: ["_"]
+    extra_delimiters: "[]"
+  PROFILING:
+    enabled: False
+    report_sec: 30
+  EXTRA:
+    input_file_name: 
+      - "*messages"
+    out_dir: "./drain32_result"
+    log_format: "<Time>\t<Content>"
+
+PERSISTENCE:
+  mode: NONE # LOAD|SAVE|NONE
+  type: FILE # FILE|REDIS|KAFKA
+  option:
+    file_name: drain_dump.bin
