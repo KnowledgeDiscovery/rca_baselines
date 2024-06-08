@@ -35,7 +35,7 @@ python drain3_parse.py ./output/log_prep_pod/   -o "./drain3_result/pod"
 ```terminal command
 python log_frequency_extraction.py --log_dir ./input_path/  --output_dir ./output_path --data_dir ./output_path
 
-python log_golden_frequency.py --root_dir ./input_path/  --output_dir ./output_path --save_dir ./output_path
+python log_golden_frequency.py --root_path ./input_path/  --output_dir ./output_path --save_dir ./output_path
 ```
 
 
