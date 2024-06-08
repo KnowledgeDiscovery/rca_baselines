@@ -3,12 +3,11 @@
 ## Execution steps
 
 ### Step 1: Preprocess data from original elasticsearch log (json format) to log messages
-# ***Notice***: You need to modify the path of dataset directory in json2message.py file
 ```terminal command
 python3 json2message.py
 ```
 
-Some of the arguments may need to change
+***Notice***: Some of the arguments may need to change
 ```
     --path, the input directory of the json format log data
     --output_dir, the output directory of all log messages
