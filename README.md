@@ -5,7 +5,7 @@
 ### File directory
 
 ```
-src
+AIOps
   --|baseline
         --|offline
               --|Dynotears
