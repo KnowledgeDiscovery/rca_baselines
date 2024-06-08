@@ -1,5 +1,5 @@
 # rca
-### (Lemma-RCA Benchmark Website)[https://lemma-rca.github.io/]
+### [Lemma-RCA Benchmark Website](https://lemma-rca.github.io/)
 ### Dataset Download
 []
 
