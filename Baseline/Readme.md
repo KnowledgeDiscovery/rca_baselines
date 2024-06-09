@@ -1,4 +1,4 @@
-# Baseline 
+# Baselines 
 
 This folder contains the baseline methods for Lemma-RCA evaluation. We provide several methods for both offline and online settings.
 
