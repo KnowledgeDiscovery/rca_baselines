@@ -5,6 +5,10 @@ Root cause analysis (RCA) is a task of identifying the underlying causes of syst
       <img src="./Other/rca_update.png" alt="drawing" style="width:600px;"/> 
 </p>
 
+### Dataset Download
+We release the dataset in [Huggingface](https://huggingface.co/Lemma-RCA-NEC) and the detailed data statistics can be found in [Lemma-RCA Webpage](https://lemma-rca.github.io/docs/data.html).
+
+
 ### Multiple Domains
 LEMMA-RCA covers two domains: 
 - IT Operations (Product Review and Cloud Computing)
