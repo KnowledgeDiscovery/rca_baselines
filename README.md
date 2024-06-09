@@ -1,22 +1,21 @@
 # [LEMMA-RCA](https://lemma-rca.github.io/)
 Root cause analysis (RCA) is a task of identifying the underlying causes of system faults/failures by analyzing the system monitoring data. LEMMA-RCA is a collection of multi-modal datasets with various real system faults to facilitate future research in RCA. LEMMA-RCA is multi-domain, encompassing real-world applications such as microservice and water treatment/distribution systems. The datasets are released under the CC BY-NC 4.0 license and hosted on Huggingface, the codes are available on Github.
 
+<p align="center">
+      <img src="./Other/rca_update.png" alt="drawing" style="width:600px;"/> 
+</p>
 
-<img src="./Other/rca_update.png" alt="drawing" style="width:600px;"/> 
-<!-- ![Alt](./Other/rca_update.png){ width: 600px; } -->
-
-
-#### Multiple Domains
+### Multiple Domains
 LEMMA-RCA covers two domains: 
 - IT Operations (Product Review and Cloud Computing)
 - OT Operations (Water Treatment/Distribution)
 Each domain contains two datasets.
 
-#### Real System Faults
+### Real System Faults
 Each dataset contains various system faults simulated from real-world scenarios. 
 For details, please check our [website](https://lemma-rca.github.io/).
 
-#### Unified Evaluation
+### Unified Evaluation
 LEMMA-RCA datasets are evaluated with eight causal learning baselines in four settings: online/offline with single/multiple modality data.
 
 ### File directory
