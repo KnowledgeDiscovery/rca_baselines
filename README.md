@@ -76,5 +76,6 @@ If you use LEMMA-RCA in your work, please cite our paper (Coming soon!).
 ### License
 
 Creative Commons Attribution-NonCommercial (CC BY-NC) 4.0 International License
+
 You can not use the code for commercial purposes.
 
