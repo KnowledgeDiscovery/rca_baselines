@@ -1,8 +1,8 @@
-# Baseline 
+# Baselines 
 
 This folder contains the baseline methods for Lemma-RCA evaluation. We provide several methods for both offline and online settings.
 
-1. **Offline Baseline**: 
+1. **Offline Baselines**: 
     - Dynotears: 
     ```
         python test_gnn_pod.py ## for metric data only
@@ -38,8 +38,8 @@ This folder contains the baseline methods for Lemma-RCA evaluation. We provide s
         python main.py
     ```
 
-2. **Online Baseline**:
-    - Notears and GOLEM:
+2. **Online Baselines**:
+    - NOTEARS<sup>* </sup> and GOLEM<sup>*</sup>
     ```
         python baseline_final.py
     ```

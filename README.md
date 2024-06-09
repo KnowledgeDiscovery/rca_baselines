@@ -9,6 +9,7 @@ Root cause analysis (RCA) is a task of identifying the underlying causes of syst
 LEMMA-RCA covers two domains: 
 - IT Operations (Product Review and Cloud Computing)
 - OT Operations (Water Treatment/Distribution)
+
 Each domain contains two datasets.
 
 ### Real System Faults
@@ -63,4 +64,18 @@ Root:
 ``` -->
 ### Citation
 If you use LEMMA-RCA in your work, please cite our paper (Coming soon!).
+
+### References
+
+[1] Lecheng Zheng, Zhengzhang Chen, Jingrui He, Haifeng Chen: MULAN: Multi-modal Causal Structure Learning and Root Cause Analysis for Microservice Systems. WWW 2024: 4107-4116.
+
+[2] Dongjie Wang, Zhengzhang Chen, Yanjie Fu, Yanchi Liu, Haifeng Chen: Incremental Causal Graph Learning for Online Root Cause Analysis. KDD 2023: 2269-2278.
+
+[3] Dongjie Wang, Zhengzhang Chen, Jingchao Ni, Liang Tong, Zheng Wang, Yanjie Fu, Haifeng Chen: Interdependent Causal Networks for Root Cause Localization. KDD 2023: 5051-5060.
+
+### License
+
+Creative Commons Attribution-NonCommercial (CC BY-NC) 4.0 International License
+
+You can not use the code for commercial purposes.
 
