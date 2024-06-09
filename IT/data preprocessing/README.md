@@ -1,4 +1,4 @@
-# Preprocessing log data
+# Preprocessing Log Data
 
 ## Execution steps
 
