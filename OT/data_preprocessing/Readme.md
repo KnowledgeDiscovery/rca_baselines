@@ -1,4 +1,4 @@
-# OT: Data Preprocessing for Root Cause Localization
+# Data Preprocessing of SWaT and WADI for Root Cause Localization Tasks
 
 This folder contains the data preprocessing code for the SWaT and WADI datasets. These datasets were initially used for anomaly detection, but we have adapted them for root cause localization. Follow the steps below to download the original data and use our code to process it into the corresponding RCA datasets.
 
