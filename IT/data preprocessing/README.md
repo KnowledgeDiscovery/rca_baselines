@@ -1,4 +1,4 @@
-# Drain preprocessing log data
+# Preprocessing log data
 
 ## Execution steps
 
