@@ -9,6 +9,7 @@ Root cause analysis (RCA) is a task of identifying the underlying causes of syst
 LEMMA-RCA covers two domains: 
 - IT Operations (Product Review and Cloud Computing)
 - OT Operations (Water Treatment/Distribution)
+
 Each domain contains two datasets.
 
 ### Real System Faults
