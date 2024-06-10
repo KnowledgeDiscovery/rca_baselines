@@ -1,0 +1,74 @@
+{
+    "_id": "6664da70b52f0890723de1a9",
+    "id": "Lemma-RCA-NEC/Product_Review_Preprocessed",
+    "author": "Lemma-RCA-NEC",
+    "sha": "3c7544c550e0f3434b17eb6fed5a4730c4a70e60",
+    "lastModified": "2024-06-09T05:53:04.000Z",
+    "private": false,
+    "gated": false,
+    "disabled": false,
+    "tags": [
+        "task_categories:time-series-forecasting",
+        "size_categories:100M<n<1B",
+        "license:cc-by-nc-4.0",
+        "root cause analysis",
+        "microservice system",
+        "multi-modal learning",
+        "time series analysis",
+        "log analysis",
+        "region:us"
+    ],
+    "description": "\n\t\n\t\t\n\t\n\t\n\t\tData Description:\n\t\n\nPreprocessed metrics and log data from Product Review Microservice Platform. \nConstructed the metric time series (as npy format) from the original metrics data (Json format). \nExtracted the log messages from the original log data (Json format). Parsed the log messages into log event templates. \n\n\t\n\t\t\n\t\n\t\n\t\tCitation:\n\t\n\n[1] Lecheng Zheng, Zhengzhang Chen, Jingrui He, Haifeng Chen:\nMULAN: Multi-modal Causal Structure Learning and Root Cause Analysis for… See the full description on the dataset page: https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Preprocessed.",
+    "downloads": 0,
+    "likes": 0,
+    "cardData": {
+        "license": "cc-by-nc-4.0",
+        "tags": [
+            "root cause analysis",
+            "microservice system",
+            "multi-modal learning",
+            "time series analysis",
+            "log analysis"
+        ],
+        "pretty_name": "Product Review Microservice Data",
+        "size_categories": [
+            "100M<n<1B"
+        ],
+        "task_categories": [
+            "time-series-forecasting"
+        ]
+    },
+    "siblings": [
+        {
+            "rfilename": ".gitattributes"
+        },
+        {
+            "rfilename": "Log Data/20210517.zip"
+        },
+        {
+            "rfilename": "Log Data/20210524.zip"
+        },
+        {
+            "rfilename": "Log Data/20211203.zip"
+        },
+        {
+            "rfilename": "Log Data/20220606.zip"
+        },
+        {
+            "rfilename": "Metrics Data/20210517.zip"
+        },
+        {
+            "rfilename": "Metrics Data/20210524.zip"
+        },
+        {
+            "rfilename": "Metrics Data/20211203.zip"
+        },
+        {
+            "rfilename": "Metrics Data/20220606.zip"
+        },
+        {
+            "rfilename": "README.md"
+        }
+    ],
+    "createdAt": "2024-06-08T22:25:52.000Z"
+}

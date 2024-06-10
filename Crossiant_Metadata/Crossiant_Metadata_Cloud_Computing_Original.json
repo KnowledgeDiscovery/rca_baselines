@@ -1,0 +1,68 @@
+{
+    "_id": "6664dbf513d2f73a727d47ff",
+    "id": "Lemma-RCA-NEC/Cloud_Computing_Original",
+    "author": "Lemma-RCA-NEC",
+    "sha": "78ec9604fd0446d875175650c99acf30c95158c2",
+    "lastModified": "2024-06-09T03:19:45.000Z",
+    "private": false,
+    "gated": false,
+    "disabled": false,
+    "tags": [
+        "task_categories:time-series-forecasting",
+        "size_categories:100M<n<1B",
+        "license:cc-by-nc-4.0",
+        "root cause analysis",
+        "microservice system",
+        "multi-modal learning",
+        "time series analysis",
+        "log analysis",
+        "region:us"
+    ],
+    "description": "\n\t\n\t\t\n\t\n\t\n\t\tData Description:\n\t\n\nBoth system metrics (json format) and log data (json format) were collected from Cloud Computing Platform with hundreds of system entities invovled. Six different types of real faults (including cryptojacking, silent pod degradation fault, malware attack, mistakes made by GitOps, configuration change failure, and bug infection) were simulated. \n\n\t\n\t\t\n\t\n\t\n\t\tCitation:\n\t\n\n[1] Lecheng Zheng, Zhengzhang Chen, Jingrui He, Haifeng Chen:\nMULAN: Multi-modal Causal… See the full description on the dataset page: https://huggingface.co/datasets/Lemma-RCA-NEC/Cloud_Computing_Original.",
+    "downloads": 0,
+    "likes": 0,
+    "cardData": {
+        "license": "cc-by-nc-4.0",
+        "tags": [
+            "root cause analysis",
+            "microservice system",
+            "multi-modal learning",
+            "time series analysis",
+            "log analysis"
+        ],
+        "pretty_name": "Cloud Computing Data",
+        "size_categories": [
+            "100M<n<1B"
+        ],
+        "task_categories": [
+            "time-series-forecasting"
+        ]
+    },
+    "siblings": [
+        {
+            "rfilename": ".gitattributes"
+        },
+        {
+            "rfilename": "20231207.zip"
+        },
+        {
+            "rfilename": "20231221.zip"
+        },
+        {
+            "rfilename": "20240115.zip"
+        },
+        {
+            "rfilename": "20240124.zip"
+        },
+        {
+            "rfilename": "20240207.zip"
+        },
+        {
+            "rfilename": "20240215.zip"
+        },
+        {
+            "rfilename": "README.md"
+        }
+    ],
+    "createdAt": "2024-06-08T22:32:21.000Z"
+}

@@ -1,0 +1,62 @@
+{
+    "_id": "6664db96bd364917ca8534d8",
+    "id": "Lemma-RCA-NEC/Product_Review_Original",
+    "author": "Lemma-RCA-NEC",
+    "sha": "284169da895e13d1ae35cb26658a92e8bc9a3dad",
+    "lastModified": "2024-06-08T23:32:31.000Z",
+    "private": false,
+    "gated": false,
+    "disabled": false,
+    "tags": [
+        "task_categories:time-series-forecasting",
+        "size_categories:100M<n<1B",
+        "license:cc-by-nc-4.0",
+        "root cause analysis",
+        "microservice system",
+        "multi-modal learning",
+        "time series analysis",
+        "log analysis",
+        "region:us"
+    ],
+    "description": "\n\t\n\t\t\n\t\n\t\n\t\tData Description:\n\t\n\nBoth metrics and log data were collected from Product Review Microservice Platform with hundreds of system entities invovled. Four different types of real faults (including DDoS attack, external storage failure, node resource contention stress test, and noisy neighbor issue) were simulated. \n\n\t\n\t\t\n\t\n\t\n\t\tCitation:\n\t\n\n[1] Lecheng Zheng, Zhengzhang Chen, Jingrui He, Haifeng Chen:\nMULAN: Multi-modal Causal Structure Learning and Root Cause Analysis for Microservice… See the full description on the dataset page: https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Original.",
+    "downloads": 0,
+    "likes": 0,
+    "cardData": {
+        "license": "cc-by-nc-4.0",
+        "tags": [
+            "root cause analysis",
+            "microservice system",
+            "multi-modal learning",
+            "time series analysis",
+            "log analysis"
+        ],
+        "pretty_name": "Product Review Microservice Data",
+        "size_categories": [
+            "100M<n<1B"
+        ],
+        "task_categories": [
+            "time-series-forecasting"
+        ]
+    },
+    "siblings": [
+        {
+            "rfilename": ".gitattributes"
+        },
+        {
+            "rfilename": "20210517.zip"
+        },
+        {
+            "rfilename": "20210524.zip"
+        },
+        {
+            "rfilename": "20211203.zip"
+        },
+        {
+            "rfilename": "20220606.zip"
+        },
+        {
+            "rfilename": "README.md"
+        }
+    ],
+    "createdAt": "2024-06-08T22:30:46.000Z"
+}

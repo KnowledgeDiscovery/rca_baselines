@@ -1,0 +1,83 @@
+{
+    "_id": "6664dbba5760c06469becf1b",
+    "id": "Lemma-RCA-NEC/Cloud_Computing_Preprocessed",
+    "author": "Lemma-RCA-NEC",
+    "sha": "7c56ceb5e1ed9b36c25e6ab37c96201f8bb2830d",
+    "lastModified": "2024-06-09T14:16:20.000Z",
+    "private": false,
+    "gated": false,
+    "disabled": false,
+    "tags": [
+        "task_categories:time-series-forecasting",
+        "size_categories:100M<n<1B",
+        "license:cc-by-nc-4.0",
+        "root cause analysis",
+        "microservice system",
+        "multi-modal learning",
+        "time series analysis",
+        "log analysis",
+        "region:us"
+    ],
+    "description": "\n\t\n\t\t\n\t\n\t\n\t\tData Description:\n\t\n\nPreprocessed system metrics and log data from Cloud Computing Platform.\nConstructed the metric time series (as npy format) from the original metrics data (Json format). \nExtracted the log messages from the original log data (Json format). Parsed the log messages into log event templates. \nNote: 20240207 data does not contain EKS log data; it solely comprises CloudTrail log data in CSV format. Consequently, this dataset does not require preprocessing with a log… See the full description on the dataset page: https://huggingface.co/datasets/Lemma-RCA-NEC/Cloud_Computing_Preprocessed.",
+    "downloads": 0,
+    "likes": 0,
+    "cardData": {
+        "license": "cc-by-nc-4.0",
+        "tags": [
+            "root cause analysis",
+            "microservice system",
+            "multi-modal learning",
+            "time series analysis",
+            "log analysis"
+        ],
+        "pretty_name": "Cloud Computing Data",
+        "size_categories": [
+            "100M<n<1B"
+        ],
+        "task_categories": [
+            "time-series-forecasting"
+        ]
+    },
+    "siblings": [
+        {
+            "rfilename": ".gitattributes"
+        },
+        {
+            "rfilename": "Log Data/20231207.zip"
+        },
+        {
+            "rfilename": "Log Data/20231221.zip"
+        },
+        {
+            "rfilename": "Log Data/20240115.zip"
+        },
+        {
+            "rfilename": "Log Data/20240124.zip"
+        },
+        {
+            "rfilename": "Log Data/20240215.zip"
+        },
+        {
+            "rfilename": "Metrics Data/20231207.zip"
+        },
+        {
+            "rfilename": "Metrics Data/20231221.zip"
+        },
+        {
+            "rfilename": "Metrics Data/20240115.zip"
+        },
+        {
+            "rfilename": "Metrics Data/20240124.zip"
+        },
+        {
+            "rfilename": "Metrics Data/20240207.zip"
+        },
+        {
+            "rfilename": "Metrics Data/20240215.zip"
+        },
+        {
+            "rfilename": "README.md"
+        }
+    ],
+    "createdAt": "2024-06-08T22:31:22.000Z"
+}
