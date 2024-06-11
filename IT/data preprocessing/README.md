@@ -48,7 +48,7 @@ python metric_json2npy.py
 
 # Constructing KPI Data
 
-## Generate KPI from Jmeter data
+## Generate KPI from JMeter data
 
 ```terminal command
 python JMeter_KPI.py
