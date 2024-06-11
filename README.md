@@ -63,7 +63,9 @@ Root:
                   --| baseline_final
 ``` -->
 ### Citation
-If you use LEMMA-RCA in your work, please cite our paper (Coming soon!).
+If you use LEMMA-RCA in your work, please cite our paper.
+
+Lecheng Zheng, Zhengzhang Chen, Dongjie Wang, Chengyuan Deng, Reon Matsuoka, and Haifeng Chen: LEMMA-RCA: A Large Multi-modal Multi-domain Dataset for Root Cause Analysis. CoRR abs/2406.05375 (2024)
 
 ### References
 
