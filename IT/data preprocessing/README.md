@@ -38,4 +38,19 @@ python log_frequency_extraction.py --log_dir ./input_path/  --output_dir ./outpu
 python log_golden_frequency.py --root_path ./input_path/  --output_dir ./output_path --save_dir ./output_path
 ```
 
+# Preprocessing Metrics Data
+
+## Convert json format metrics data to npy format
+
+```terminal command
+python metric_json2npy.py
+```
+
+# Constructing KPI Data
+
+## Generate KPI from Jmeter data
+
+```terminal command
+python JMeter_KPI.py
+```
 
