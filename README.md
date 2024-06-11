@@ -80,5 +80,5 @@ Lecheng Zheng, Zhengzhang Chen, Dongjie Wang, Chengyuan Deng, Reon Matsuoka, and
 
 Creative Commons Attribution-NonCommercial (CC BY-NC) 4.0 International License
 
-You can not use the code for commercial purposes.
+You can not use the code and data for commercial purposes.
 
