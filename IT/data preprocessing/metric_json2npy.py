@@ -12,6 +12,7 @@ min_sample_size = 1e5
 def main():
     st = time.time()
 
+    # KPI location
     JAEGER_PATH = './reviews-v2-5d8f8b6775-sl4vp.csv'
     jaeger_df = pd.read_csv(JAEGER_PATH)
     # convert timestamp
@@ -29,12 +30,12 @@ def main():
         group = group.groupby('timeStamp').mean().reset_index()
         jaeger_data[label] = group
     
-    ##### 1. namespaceフォルダまでのPATH ###
+    ##### 1. Pod metric data Path ###
     POD_METRIC_PATH='./Metrics/pod/'
-    ##### 2. nodeãƒ•ã‚©ãƒ«ãƒ€ã¾ã§ã®PATH ###
+    ##### 2. Node metric data path###
     node_path = "./Metrics"
     
-    # namespaceã‚’ãƒ•ã‚©ãƒ«ãƒ€åã‹ã‚‰å–å¾—
+    # Metric name list
     pod_metrics_list = ['cpu_usage','memory_usage','received_bandwidth','transmit_bandwidth','rate_received_packets','rate_transmitted_packets']
     node_metrics_list = ['cpu_usage','cpu_saturation','memory_usage','memory_saturation','net_usage_receive(bytes)','net_usage_transmit(bytes)','net_saturation_receive','net_saturation_transmit','net_disk_io_usage','net_disk_io_saturation','net_disk_space_usage']
     
@@ -54,17 +55,14 @@ def main():
     elapsed_time = et - st
     print('Execution time:', elapsed_time, 'seconds') 
 
-# é–¢æ•°ã®å®Ÿè¡Œæ™‚é–“è¨ˆæ¸¬é–¢æ•°
+# Execution time°
 def func_time(func):
-    # å‡¦ç†å‰ã®æ™‚åˆ»
     t1 = time.time() 
-    # å‡¦ç†å¾Œã®æ™‚åˆ»
     t2 = time.time()
-    # çµŒéŽæ™‚é–“ã‚’è¡¨ç¤º
     elapsed_time = t2-t1
-    print(f"çµŒéŽæ™‚é–“ï¼š{elapsed_time}")
 
-# podã®ãƒ¡ãƒˆãƒªã‚¯ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å¤‰æ›ã™ã‚‹é–¢æ•°
+
+# Convert pod-level metrics data 
 def pod_file_convert(POD_METRIC_PATH, metric, header_name, jaeger_data, jaeger_col):
     pod_data = defaultdict(lambda : {})
     data_list = []
@@ -132,12 +130,12 @@ def pod_file_convert(POD_METRIC_PATH, metric, header_name, jaeger_data, jaeger_c
     np.save(metric_file, processed_data)
     print('Pod Data of Metric', metric, 'Preprocessed')
 
-# nodeã®ãƒ¡ãƒˆãƒªã‚¯ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å¤‰æ›ã™ã‚‹é–¢æ•°
+# Convert node-level metric data
 def node_file_convert(node_path, metric, json_file, header_name, jaeger_data, jaeger_col):
     data_list = []
     data_list_col=['node','time','value']
     metric_data = {}
-    # globã§jsonã‚’èª­ã¿è¾¼ã¿
+
     for filename in glob.glob(json_file):
         json_data = orjson.loads(open(filename).read())
         for result in json_data['data']['result']:
