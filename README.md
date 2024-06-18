@@ -14,9 +14,10 @@ LEMMA-RCA covers two domains and we provide both the raw data and preprocessed d
   ```
   If you want to directly test the performance of these baseline methods, you may choose to download the preprocessed data.
 - IT Operations (Product Review and Cloud Computing)
--- Two Dataset Versions for Product Review: [[Raw Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Original)][[Preprocessed Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Preprocessed)]
--- Two Dataset Versions for Cloud Computing: [[Raw Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Cloud_Computing_Original)][[Preprocessed Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Cloud_Computing_Preprocessed)]
 - OT Operations (Water Treatment/Distribution)
+- Two Dataset Versions for Product Review: [[Raw Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Original)][[Preprocessed Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Preprocessed)]
+- Two Dataset Versions for Cloud Computing: [[Raw Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Cloud_Computing_Original)][[Preprocessed Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Cloud_Computing_Preprocessed)]
+
 
 ### Real System Faults
 Each dataset contains various system faults simulated from real-world scenarios. 
