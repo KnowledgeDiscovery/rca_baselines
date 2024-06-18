@@ -5,12 +5,18 @@ Root cause analysis (RCA) is a task of identifying the underlying causes of syst
       <img src="./Other/rca_update.png" alt="drawing" style="width:600px;"/> 
 </p>
 
-### Multiple Domains
-LEMMA-RCA covers two domains: 
+### Multiple Domains and Dataset Download
+LEMMA-RCA covers two domains and we provide both the raw data and preprocessed data. We release the dataset in [Huggingface](https://huggingface.co/Lemma-RCA-NEC) and the detailed data statistics can be found in [Lemma-RCA Webpage](https://lemma-rca.github.io/docs/data.html).  
+- For the raw data version, we provide all json files where the microservice system stores both the metric data and the log data. The users may extract these two modality by themself. The goal of providing the raw data is to provide the user more choice of preprocessing the log data. 
+- For the preprocessed data, we have extracted the metric data, and unstructured log data for each pods. The users may use their own methods to preprocessed log data or use the provided code to preprocess the log data and convert it to time-series data.
+  ```
+   cd ./IT/data_preprocessing
+  ```
+  If you want to directly test the performance of these baseline methods, you may choose to download the preprocessed data.
 - IT Operations (Product Review and Cloud Computing)
+      - Dataset Version: [Raw Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Original)[Preprocessed Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Preprocessed)
 - OT Operations (Water Treatment/Distribution)
-
-Each domain contains two datasets.
+      - Dataset Version: [Raw Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Cloud_Computing_Original)[Preprocessed Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Cloud_Computing_Preprocessed)
 
 ### Real System Faults
 Each dataset contains various system faults simulated from real-world scenarios. 
@@ -20,7 +26,6 @@ For details, please check our [website](https://lemma-rca.github.io/).
 LEMMA-RCA datasets are evaluated with eight causal learning baselines in four settings: online/offline with single/multiple modality data.
 
 ### Dataset Download
-We release the dataset in [Huggingface](https://huggingface.co/Lemma-RCA-NEC) and the detailed data statistics can be found in [Lemma-RCA Webpage](https://lemma-rca.github.io/docs/data.html).
 
 <!-- 
 ### File directory
