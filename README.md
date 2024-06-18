@@ -42,6 +42,7 @@ python json2message.py
 ```
 
 ***Notice***: Some of the arguments may need to change
+
 ```
     --path, the input directory of the json format log data
     --output_dir, the output directory of all log messages
