@@ -5,6 +5,10 @@ Root cause analysis (RCA) is a task of identifying the underlying causes of syst
       <img src="./Other/rca_update.png" alt="drawing" style="width:600px;"/> 
 </p>
 
+### Real System Faults
+Each dataset contains various system faults simulated from real-world scenarios. 
+For details, please check our [website](https://lemma-rca.github.io/).
+
 ### Multiple Domains and Dataset Download
 LEMMA-RCA covers two domains and we provide both the raw data and preprocessed data. We release the dataset in [Huggingface](https://huggingface.co/Lemma-RCA-NEC) and the detailed data statistics can be found in [Lemma-RCA Webpage](https://lemma-rca.github.io/docs/data.html).  
 - For the raw data version, we provide all json files where the microservice system stores both the metric data, the log data and even trace data. Users are expected to extract these two modalities by themself. The goal of the raw data is to provide the users more choice of preprocessing the raw data. 
@@ -19,14 +23,66 @@ LEMMA-RCA covers two domains and we provide both the raw data and preprocessed d
 - Two Dataset Versions for Cloud Computing: [[Raw Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Cloud_Computing_Original)][[Preprocessed Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Cloud_Computing_Preprocessed)]
 
 
-### Real System Faults
-Each dataset contains various system faults simulated from real-world scenarios. 
-For details, please check our [website](https://lemma-rca.github.io/).
-
 ### Unified Evaluation
 LEMMA-RCA datasets are evaluated with eight causal learning baselines in four settings: online/offline with single/multiple modality data.
 
-### Dataset Download
+### Guideline for evaluation 
+Example: Using FastPC to evalute the Performance of Case 20211203 in Product Review
+#### Step 1: Download the Case 20211203 of the [[preprocessed data from HuggingFace](https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Preprocessed)].
+You need to download both log and metric data if you want to test performance of FastPC on Multi-modal data.
+
+#### Step 2: Use the Code in IT to preprocess the log data.
+```
+      cd ./IT/data_preprocessing
+```
+
+#### Step 3: Preprocess data from original elasticsearch log (json format) to log messages
+```terminal command
+python json2message.py
+```
+
+***Notice***: Some of the arguments may need to change
+```
+    --path, the input directory of the json format log data
+    --output_dir, the output directory of all log messages
+    --output_dir2, the output directory of pod-level log messages for each pod
+    --output_dir3, the output directory of node-level log messages for each node
+```
+
+#### Step 4: Usa Drain to parse both node-level and pod-level log messages
+
+```terminal command
+python drain3_parse.py ./output/log_prep_node/  -o "./drain3_result/node"
+
+python drain3_parse.py ./output/log_prep_pod/   -o "./drain3_result/pod"
+
+```
+
+```
+    --input_dir, default="./output/log_prep_node/" or "./output/log_prep_pod/"
+    --output_dir, default="./drain3_result/node"   or "./drain3_result/pod"
+  
+```
+
+#### Step 5: Log feature extraction
+
+```terminal command
+python log_frequency_extraction.py --log_dir ./input_path/  --output_dir ./output_path
+
+python log_golden_frequency.py --root_path ./input_path/  --output_dir ./output_path --save_dir ./output_path
+```
+
+#### Step 6. Evalute the performance of FastPC on the Case 20211203:
+- Notice that you need to change the path of data and dataset name. For FastPC, change the dataset on line 10 to 1203, and path directory on line 35.
+    ```
+        python test_gnn_pod.py ## for metric data only
+        python test_gnn_pod_log.py  ## for log data only
+        python test_gnn_pod_combine.py  ## for both metric and log data
+    ```
+#### Step 7. Check the results
+
+
+
 
 <!-- 
 ### File directory
