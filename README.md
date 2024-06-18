@@ -7,8 +7,8 @@ Root cause analysis (RCA) is a task of identifying the underlying causes of syst
 
 ### Multiple Domains and Dataset Download
 LEMMA-RCA covers two domains and we provide both the raw data and preprocessed data. We release the dataset in [Huggingface](https://huggingface.co/Lemma-RCA-NEC) and the detailed data statistics can be found in [Lemma-RCA Webpage](https://lemma-rca.github.io/docs/data.html).  
-- For the raw data version, we provide all json files where the microservice system stores both the metric data and the log data. The users may extract these two modality by themself. The goal of providing the raw data is to provide the user more choice of preprocessing the log data. 
-- For the preprocessed data, we have extracted the metric data, and unstructured log data for each pods. The users may use their own methods to preprocessed log data or use the provided code to preprocess the log data and convert it to time-series data. For instance, the code to preprocess the data in the IT domain is stored in the following directory.
+- For the raw data version, we provide all json files where the microservice system stores both the metric data, the log data and even trace data. Users are expected to extract these two modalities by themself. The goal of the raw data is to provide the users more choice of preprocessing the raw data. 
+- For the preprocessed data, we have extracted the metric data and unstructured log data for each pod. The users may use their own methods to preprocessed log data or use the provided code to preprocess the log data and convert it to time-series data. For instance, the code to preprocess the data in the IT domain is stored in the following directory.
   ```
    cd ./IT/data_preprocessing
   ```
