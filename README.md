@@ -14,7 +14,7 @@ LEMMA-RCA covers two domains and we provide both the raw data and preprocessed d
   ```
   If you want to directly test the performance of these baseline methods, you may choose to download the preprocessed data.
 - IT Operations (Product Review and Cloud Computing)
-      - Dataset Version: [Raw Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Original)[Preprocessed Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Preprocessed)
+      - Dataset Version: [[Raw Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Original)][[Preprocessed Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Preprocessed)]
 - OT Operations (Water Treatment/Distribution)
       - Dataset Version: [Raw Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Cloud_Computing_Original)[Preprocessed Data](https://huggingface.co/datasets/Lemma-RCA-NEC/Cloud_Computing_Preprocessed)
 
