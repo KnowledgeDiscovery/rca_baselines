@@ -28,7 +28,7 @@ LEMMA-RCA datasets are evaluated with eight causal learning baselines in four se
 
 ### Guideline for evaluation 
 Example: Using FastPC to evalute the Performance of Case 20211203 in Product Review
-#### Step 1: Download the Case 20211203 of the [[preprocessed data from HuggingFace](https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Preprocessed)].
+#### Step 1: Download the Case 20211203 of the [[preprocessed data from HuggingFace](https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Preprocessed/tree/main)].
 You need to download both log and metric data if you want to test performance of FastPC on Multi-modal data.
 
 #### Step 2: Use the Code in IT to preprocess the log data.
