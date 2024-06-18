@@ -26,17 +26,18 @@ LEMMA-RCA covers two domains and we provide both the raw data and preprocessed d
 ### Unified Evaluation
 LEMMA-RCA datasets are evaluated with eight causal learning baselines in four settings: online/offline with single/multiple modality data.
 
-### Guideline for evaluation 
+### Guideline for Evaluation 
 Example: Using FastPC to evalute the Performance of Case 20211203 in Product Review
-#### Step 1: Download the Case 20211203 of the [[preprocessed data from HuggingFace](https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Preprocessed/tree/main)].
-You need to download both log and metric data if you want to test performance of FastPC on Multi-modal data.
 
-#### Step 2: Use the Code in IT to preprocess the log data.
+#### Step 1: Download the Case 20211203 of the [[preprocessed data from HuggingFace](https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Preprocessed/tree/main)].
+You need to download both log and metric data if you would like to test the performance of FastPC on multi-modal data.
+
+#### Step 2: Use the code in IT folder to preprocess the log data
 ```
       cd ./IT/data_preprocessing
 ```
 
-#### Step 3: Preprocess data from original elasticsearch log (json format) to log messages
+#### Step 3: Extract useful log information (such as pod/node names, log messages, etc.) from original elasticsearch log (json format) 
 ```terminal command
 python json2message.py
 ```
@@ -74,7 +75,8 @@ python log_golden_frequency.py --root_path ./input_path/  --output_dir ./output_
 ```
 
 #### Step 6. Evalute the performance of FastPC on the Case 20211203:
-- Notice that you need to change the path of data and dataset name. For python test_gnn_pod.py in FastPC, change the dataset on line 10 to 1203, and path directory on line 35.
+- Notice that you need to change the path of data and dataset name. For python test_gnn_pod.py in FastPC, change the dataset on line 10 to 1203, and path directory on line 35; Change POD_METRIC_FILE on line 12 if the metrics in the data are different, or you would like to exclude some metrics in the evaluation; Add the KPI label on line 20 if necessary.
+- 
     ```
         python test_gnn_pod.py ## for metric data only
         python test_gnn_pod_log.py  ## for log data only
