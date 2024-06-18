@@ -80,7 +80,10 @@ python log_golden_frequency.py --root_path ./input_path/  --output_dir ./output_
         python test_gnn_pod_combine.py  ## for both metric and log data
     ```
 #### Step 7. Check the results
-
+The results will be both outputed and stored in the csv file as follows:
+```
+       ./Baseline/offline/output/Pod_level_combine_ranking.csv
+```
 
 
 
