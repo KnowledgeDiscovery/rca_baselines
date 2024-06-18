@@ -106,23 +106,6 @@ def detect_individual_causal(X: np.ndarray,
         score = spot_detection(X, d, q, n_init, level)
     return score
 
-# graph neural network based method
-def gnn(X: np.ndarray, lag: int, layers: list, l1: float, l2: float, max_iter:int):
-    n_node = X.shape[1]
-    cfg = {
-        'n_node': n_node,
-        'layers': [lag] + layers + [1],
-    }
-
-    model = GNNCI(cfg)
-    X = X.transpose()
-    W_est = model.train(X, lambda1=l1, lambda2=l2, lag=lag, max_iter=max_iter)
-    
-    sg = np.sum(np.abs(W_est), axis=0)
-    # sg = sg[nodes, :][:, nodes]
-    # fg = np.concatenate(W_est, axis=0)
-    return sg
-
     
 # LSTM based method
 def lstm(X: np.ndarray, hidden: int, context: int, lam: float, lam_ridge: float, lr: float, max_iter: int, check_every: int, device=torch.device('cuda' if torch.cuda.is_available() else 'cpu')):
@@ -143,14 +126,7 @@ def generate_causal_graph(X: np.ndarray,
                                         'lambda_w': 1e-3,
                                         'lambda_a': 1e-3,
                                         'max_iter':30})->np.ndarray:
-    if method == 'gnn':
-        lag = args['lag']
-        l1 = args['lambda1']
-        l2 = args['lambda2']
-        max_iter = args['max_iter']
-        layers = args['layers']
-        W_est = gnn(X, lag, layers, l1, l2, max_iter)
-    elif method == 'lstm':
+    if method == 'lstm':
         torch.set_default_tensor_type(torch.FloatTensor)
         hidden = args['hidden']
         context = args['context']
