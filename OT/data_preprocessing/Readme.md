@@ -4,8 +4,8 @@ This folder contains the data preprocessing code for the SWaT and WADI datasets.
 
 1. **Download Original Data**: 
     - You can download the original datasets from the [iTrust website](https://itrust.sutd.edu.sg/itrust-labs_datasets/dataset_info/).
-    - For SWaT, use the data from December 2015.
-    - For WADI, use the WADI.A1 data.
+    - For SWaT, use the data from December 2015, as an example.
+    - For WADI, use the WADI.A1 data, as an example.
 
 2. **Processing Strategy**:
     - Although the two datasets require slightly different processing steps, we use a consistent high-level strategy for both.
