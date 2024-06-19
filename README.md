@@ -32,7 +32,9 @@ Example: Using FastPC to evalute the Performance of Case 20211203 in Product Rev
 #### Step 1: Download the Case 20211203 of the [[preprocessed data from HuggingFace](https://huggingface.co/datasets/Lemma-RCA-NEC/Product_Review_Preprocessed/tree/main)].
 You need to download both log and metric data if you would like to test the performance of FastPC on multi-modal data.
 
-#### Step 2: Use the code in IT folder to preprocess the log data
+#### Notice: If you want to use metric data only, you can skip step 2 to step 5 and move directly to step 6 to detect root cause with metric data.
+
+#### Step 2: Use the code in IT folder to preprocess the log data. 
 ```
       cd ./IT/data_preprocessing
 ```
