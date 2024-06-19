@@ -75,7 +75,7 @@ python log_golden_frequency.py --root_path ./input_path/  --output_dir ./output_
 ```
 
 #### Step 6. Evalute the performance of FastPC on the Case 20211203:
-- Notice that you need to change the path of data and dataset name. For python test_gnn_pod.py in FastPC, change the dataset on line 10 to 1203, and path directory on line 35; Change POD_METRIC_FILE on line 12 if the metrics in the data are different, or you would like to exclude some metrics in the evaluation; Add the KPI label on line 20 if necessary.
+- Notice that you need to change the path of data and dataset name. For python test_FastPC_pod_metric.py in FastPC, change the dataset on line 10 to 1203, and path directory on line 35; Change POD_METRIC_FILE on line 12 if the metrics in the data are different, or you would like to exclude some metrics in the evaluation; Add the KPI label on line 20 if necessary.
 - 
     ```
     python test_FastPC_pod_metric.py ## for metric data only
