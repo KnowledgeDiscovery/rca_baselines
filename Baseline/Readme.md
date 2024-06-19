@@ -5,28 +5,28 @@ This folder contains the baseline methods for Lemma-RCA evaluation. We provide s
 1. **Offline Baselines**: 
     - Dynotears: 
     ```
-        python test_gnn_pod.py ## for metric data only
-        python test_gnn_pod_log.py  ## for log data only
-        python test_gnn_pod_combine.py  ## for both metric and log data
+        python test_Dynotears_pod_metric.py ## for metric data only
+        python test_Dynotears_pod_log.py  ## for log data only
+        python test_Dynotears_pod_combine.py  ## for both metric and log data
     ```
     - FastPC: 
     ```
-        python test_gnn_pod.py ## for metric data only
-        python test_gnn_pod_log.py  ## for log data only
-        python test_gnn_pod_combine.py  ## for both metric and log data
+        python test_FastPC_pod_metric.py ## for metric data only
+        python test_FastPC_pod_log.py  ## for log data only
+        python test_FastPC_pod_combine.py  ## for both metric and log data
     ```
 
     - GOLEM: 
     ```
-        python test_gnn_pod.py ## for metric data only
-        python test_gnn_pod_log.py  ## for log data only
-        python test_gnn_pod_combine.py  ## for both metric and log data
+        python test_GOLEM_pod_metric.py ## for metric data only
+        python test_GOLEM_pod_log.py  ## for log data only
+        python test_GOLEM_pod_combine.py  ## for both metric and log data
     ```
     - LSTM: 
     ```
-        python test_gnn_pod.py ## for metric data only
-        python test_gnn_pod_log.py  ## for log data only
-        python test_gnn_pod_combine.py  ## for both metric and log data
+        python test_LSTM_pod_metric.py ## for metric data only
+        python test_LSTM_pod_log.py  ## for log data only
+        python test_LSTM_pod_combine.py  ## for both metric and log data
     ```
     - Nezha:
     ```
@@ -36,5 +36,5 @@ This folder contains the baseline methods for Lemma-RCA evaluation. We provide s
 2. **Online Baselines**:
     - NOTEARS<sup>* </sup> and GOLEM<sup>*</sup>
     ```
-        python baseline_final.py
+        python Test_notears_Golem.py
     ```
