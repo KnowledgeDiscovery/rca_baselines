@@ -4,7 +4,7 @@ from sklearn import preprocessing
 from rca import detect_individual_causal, generate_causal_graph, generate_Q, propagate_error
 from sklearn.feature_selection import VarianceThreshold
 import os
-
+import argparse
 
 class SlidingWindow():
     def __init__(self):
@@ -84,45 +84,40 @@ class SlidingWindow():
 if __name__ == '__main__':
     #st = time.time()
     #Assign weight for each metric: default equal weight
+    
+    
+    parser = argparse.ArgumentParser(description='Fast PC algorithm')
+    parser.add_argument('--dataset', type=str, default='20211203', help='name of the dataset')
+    parser.add_argument('--path_dir', type=str, default='../../../20211203/', help='path to the dataset')
+    parser.add_argument('--output_dir', type=str, default='./20211203_output/', help='path to save the results')
+    parser.add_argument('--topology_compressed_data_size', type=int, default=300, help='Individual log compressed data size')
+    parser.add_argument('--individual_log_compressed_data_size', type=int, default=300, help='Individual metric compressed data size')
+    # Parse the arguments
+    args = parser.parse_args()
+    #st = time.time()
+    dataset = args.dataset
+    #Assign weight for each metric: default equal weight
+    POD_METRIC_FILE = {'cpu_usage': 1, 'memory_usage': 1, 'rate_transmitted_packets': 1, 'rate_received_packets': 1, 'received_bandwidth': 1, 'transmit_bandwidth': 1, 'successful_rate': 1}
     POD_log_FILE = {'Score': 1}
-    dataset = '1203'
-    window_size = 30
-    step_size = 0.5
-    log_label = 'ratings.book-info.svc.cluster.local:9080/*'
-    # POD_METRIC_FILE = {'cpu_usage': 1, 'memory_usage': 1, 'rate_transmitted_packets': 1, 'rate_received_packets': 1, 'received_bandwidth': 1, 'transmit_bandwidth': 1}
-    log_patch = 6
-    log_data = {}
+    metric_data = {}
     columns_common = {}
-    pathset = "./{}_output/".format(dataset)
+    pathset = args.output_dir
     if not(os.path.exists(pathset)):
         os.mkdir(pathset)
-    if dataset == '1203':
-        log_file = 'backup_version/joint_training/1203_log_BERT_tokenize_template_pod_level_removed_30.npy'
-        KPI_file = '/nfs/users/zach/aiops/data/1203/kpi.csv'
-    elif dataset == '0606':
-        log_file = 'backup_version/joint_training/0606_log_frequency_pod_level_window_size_30_removed.npy'
-        KPI_file = '/nfs/users/zach/aiops/data/0606/reviews-v3_Incoming_Success_Rate_non5xxresponses_By_Source.csv'
-    elif dataset == '0524':
-        log_file = 'backup_version/joint_training/0524_log_BERT_tokenize_template_pod_level_30_removed.npy'
-        KPI_file = '/nfs/users/zach/aiops/data/0524/KPI.csv'
-    elif dataset == '0517':
-        log_file = 'backup_version/joint_training/0517_log_BERT_tokenize_template_pod_level_window_size_30_removed.npy'
-        KPI_file = '/nfs/users/zach/aiops/data/0517/KPI.csv'
+
+    #KPI label
+    if dataset == '20211203':
+        label = 'ratings.book-info.svc.cluster.local:9080/*'
+    elif dataset == '20220606':
+        label = 'reviews-v3'
+    elif dataset == '20210524':
+        label = 'Book_Info_product'
+    elif dataset == '20220517':
+        label = 'Book_Info_product'
     else:
         raise 'Incorret Dataset Error'
-    #KPI label
-    label = 'Book_Info_product'
-    # log_file
-    # path_dirs = "/nfs/users/zach/aiops_data/data/0517/"
-    path_dirs = "/nfs/users/lecheng/REASON/log_analysis/src/"
-    #Find common pods    
-    # for metric, weight in POD_METRIC_FILE.items():
-    #     metric_file = path_dirs + log_file
-    #     log_data[metric] = np.load(metric_file, allow_pickle=True).item()
-    #     if columns_common:
-    #         columns_common = list(set(log_data[metric][label]['Node_Name']).intersection(columns_common))
-    #     else:
-    #         columns_common = list(log_data[metric][label]['Node_Name'])
+    path_dirs = args.path_dir
+    
     for log, weight in POD_log_FILE.items():
         log_data[log] = np.load(path_dirs + log_file, allow_pickle=True).item()
     if columns_common:

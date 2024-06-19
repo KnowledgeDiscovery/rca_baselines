@@ -90,7 +90,7 @@ if __name__ == '__main__':
     window_size = 30
     step_size = 0.5
     log_label = 'ratings.book-info.svc.cluster.local:9080/*'
-    POD_METRIC_FILE = {'cpu_usage': 1, 'memory_usage': 1, 'rate_transmitted_packets': 1, 'rate_received_packets': 1, 'received_bandwidth': 1, 'transmit_bandwidth': 1, 'Score':1}
+    POD_METRIC_FILE = {'cpu_usage': 1, 'memory_usage': 1, 'rate_transmitted_packets': 1, 'rate_received_packets': 1, 'received_bandwidth': 1, 'transmit_bandwidth': 1, 'Score':1, 'successful_rate': 1}
     # POD_combine_FILE = {'cpu_usage': 1, 'memory_usage': 1, 'rate_transmitted_packets': 1, 'rate_received_packets': 1, 'received_bandwidth': 1, 'transmit_bandwidth': 1, 'score':1}
     log_patch = 6
     log_data = {}

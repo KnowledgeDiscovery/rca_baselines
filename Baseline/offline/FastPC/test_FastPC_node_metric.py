@@ -4,18 +4,30 @@ from sklearn import preprocessing
 from rca import detect_individual_causal, generate_causal_graph, generate_Q, propagate_error
 from sklearn.feature_selection import VarianceThreshold
 import os
+import argparse
+
+
 
 if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser(description='Fast PC algorithm')
+    parser.add_argument('--dataset', type=str, default='20211203', help='name of the dataset')
+    parser.add_argument('--path_dir', type=str, default='../../../20211203/', help='path to the dataset')
+    parser.add_argument('--output_dir', type=str, default='./20211203/output/', help='path to save the results')
+    parser.add_argument('--topology_compressed_data_size', type=int, default=300, help='Individual log compressed data size')
+    parser.add_argument('--individual_log_compressed_data_size', type=int, default=300, help='Individual metric compressed data size')
+    # Parse the arguments
+    args = parser.parse_args()
     #Assign weight for each metric: default equal weight
     NODE_METRIC_FILE = {'cpu_usage': 1, 'cpu_saturation':1, 'net_disk_io_usage':1, 'memory_usage':1,'net_disk_space_usage':1,'net_disk_io_saturation':1, 'net_saturation_transmit':1, 'net_saturation_receive':1, 'net_usage_transmit(bytes)':1, 'net_usage_receive(bytes)':1,'memory_saturation':1}
     metric_data = {}
     columns_common = {}
-    pathset = "./0517/output/"
+    pathset = args.output_dir
     if not(os.path.exists(pathset)):
         os.mkdir(pathset)
     label = 'Book_Info_product' #这个label的意思是
 
-    path_dirs = "/nfs/users/zach/aiops_data/data/0517/"
+    path_dirs = args.path_dir
     #Find common nodes, here nodes can be regarded as servers
     for metric, weight in NODE_METRIC_FILE.items():
         metric_file = path_dirs + 'node_level_data_{}'.format(metric)
