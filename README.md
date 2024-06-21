@@ -76,14 +76,17 @@ python log_frequency_extraction.py --log_dir ./input_path/  --output_dir ./outpu
 python log_golden_frequency.py --root_path ./input_path/  --output_dir ./output_path --save_dir ./output_path
 ```
 
-#### Step 6. Evalute the performance of FastPC on the Case 20211203:
-- Notice that you need to change the path of data and dataset name. For python test_FastPC_pod_metric.py in FastPC, change the dataset on line 10 to 1203, and path directory on line 35; Change POD_METRIC_FILE on line 12 if the metrics in the data are different, or you would like to exclude some metrics in the evaluation; Add the KPI label on line 20 if necessary.
+#### Step 6. Evalute the performance of FastPC on the Case 20211203 with metric data only:
+- Notice that you need to change the path of data, dataset name and output directory. 
 - 
     ```
-    python test_FastPC_pod_metric.py ## for metric data only
+    python test_FastPC_pod_metric.py  --dataset 20211203 --path_dir CHANGE_PATH_TO_DATASET_DIRECTORY --output_dir CHANGE_PATH_TO_OUTPUT_DIRECTORY
+    ```
+You may also test the performance of FastPC with log data or two modalities with the following command:
+  ```
     python test_FastPC_pod_log.py  ## for log data only
     python test_FastPC_pod_combine.py  ## for both metric and log data
-    ```
+```
 #### Step 7. Check the results
 The results will be stored in the csv file as follows:
 ```
