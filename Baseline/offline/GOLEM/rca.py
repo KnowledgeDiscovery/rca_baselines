@@ -2,7 +2,6 @@
 import numpy as np
 import pandas as pd
 import networkx as nx
-from gnn_dag import GNNCI
 from causalnex.structure import dynotears
 from causalnex.structure.dynotears import from_pandas_dynamic
 from pyspot import DSpot, Spot

@@ -1,0 +1,15 @@
+label: book_info
+path_dirs: ./Log_Metric_DAG/data/0207/common_log_metric_data.pkl
+name: Pod_Name
+online_start: 1707184348
+failure_time: 1707196841
+
+metrics:
+  cpu_usage: 1
+  memory_usage: 1
+  rate_transmitted_packets: 1
+  rate_received_packets: 1
+  received_bandwidth: 1
+  transmit_bandwidth: 1
+root_cause: details-v1-aggregated
+

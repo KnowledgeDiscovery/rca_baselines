@@ -1,0 +1,14 @@
+label: book_info
+path_dirs: ./Log_Metric_DAG/data/0115/common_log_metric_data.pkl
+name: Pod_Name
+online_start:  1705208021
+failure_time: 1705217199
+metrics:
+  cpu_usage: 1
+  memory_usage: 1
+  rate_transmitted_packets: 1
+  rate_received_packets: 1
+  received_bandwidth: 1
+  transmit_bandwidth: 1
+root_cause: scenario10-malware-deployment-57db4df9f4-p8h7h
+

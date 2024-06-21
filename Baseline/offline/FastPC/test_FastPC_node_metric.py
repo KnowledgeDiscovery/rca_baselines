@@ -14,8 +14,6 @@ if __name__ == '__main__':
     parser.add_argument('--dataset', type=str, default='20211203', help='name of the dataset')
     parser.add_argument('--path_dir', type=str, default='../../../20211203/', help='path to the dataset')
     parser.add_argument('--output_dir', type=str, default='./20211203/output/', help='path to save the results')
-    parser.add_argument('--topology_compressed_data_size', type=int, default=300, help='Individual log compressed data size')
-    parser.add_argument('--individual_log_compressed_data_size', type=int, default=300, help='Individual metric compressed data size')
     # Parse the arguments
     args = parser.parse_args()
     #Assign weight for each metric: default equal weight

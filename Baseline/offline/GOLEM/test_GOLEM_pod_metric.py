@@ -4,41 +4,43 @@ from sklearn import preprocessing
 from rca import detect_individual_causal, generate_causal_graph, generate_Q, propagate_error
 from sklearn.feature_selection import VarianceThreshold
 import os
-os.environ["CUDA_VISIBLE_DEVICES"]="1"
+import argparse
 
 if __name__ == '__main__':
-    dataset = '1203'
+
+    parser = argparse.ArgumentParser(description='GOLEM algorithm')
+    parser.add_argument('--dataset', type=str, default='20211203', help='name of the dataset')
+    parser.add_argument('--path_dir', type=str, default='../../../20211203/', help='path to the dataset')
+    parser.add_argument('--output_dir', type=str, default='./20211203_output/', help='path to save the results')
+    # Parse the arguments
+    args = parser.parse_args()
+    #st = time.time()
+    dataset = args.dataset
+    output_dir = args.output_dir
+    path_dir = args.path_dir
     #Assign weight for each metric: default equal weight
     POD_METRIC_FILE = {'cpu_usage': 1, 'memory_usage': 1, 'rate_transmitted_packets': 1, 'rate_received_packets': 1, 'received_bandwidth': 1, 'transmit_bandwidth': 1}
     metric_data = {}
     columns_common = {}
-    pathset = "./output/"
-    if not(os.path.exists(pathset)):
-        os.mkdir(pathset)
+    if not(os.path.exists(output_dir)):
+        os.mkdir(output_dir)
 
     #KPI label
-    if dataset == '1203':
-        # KPI label  for 1203
+    if dataset == '20211203':
         label = 'ratings.book-info.svc.cluster.local:9080/*'
-    elif dataset == '0606':
-        # KPI label for 0606
+    elif dataset == '20220606':
         label = 'reviews-v3'
-    elif dataset == '0524':
-        # KPI label for 0606
-        # root cause: catalogue-85fd4965b7-q8477
+    elif dataset == '20210524':
         label = 'Book_Info_product'
-    elif dataset == '0517':
-        # KPI label for 0606
+    elif dataset == '20220517':
         label = 'Book_Info_product'
     else:
         raise 'Incorret Dataset Error'
-    path_dirs = "/nfs/users/zach/aiops/data/{}/".format(dataset)
-    
     
     
     #Find common pods    
     for metric, weight in POD_METRIC_FILE.items():
-        metric_file = path_dirs+'pod_level_data_{}'.format(metric)
+        metric_file = path_dir+'pod_level_data_{}'.format(metric)
         metric_file = metric_file + '.npy'
         metric_data[metric] = np.load(metric_file, allow_pickle=True).item()
         if columns_common:
@@ -133,7 +135,7 @@ if __name__ == '__main__':
     weight_results['metric'] = np.array(metric_names)[ranking]
     weight_results['weight'] = metric_weight[ranking.ravel()]
     output_filename = "learned_metric_weight_pod.csv"
-    weight_results.to_csv(os.path.join(pathset, output_filename))
+    weight_results.to_csv(os.path.join(output_dir, output_filename))
     metric_names  = weight_results['metric']
 
     print('Metric prioritization done!')
@@ -244,7 +246,7 @@ if __name__ == '__main__':
                 'score': normalized_score}
     
         metric_file ='inrc_pod_{}'.format(metric)  
-        output_file = os.path.join(pathset, metric_file)        
+        output_file = os.path.join(output_dir, metric_file)        
         np.save(output_file+'.npy', info)
         pod_results.to_csv(output_file +'_ranking.csv')
         print('Pod root cause detection done for metric:', metric)
@@ -262,13 +264,13 @@ if __name__ == '__main__':
     pod_results_combine = pd.DataFrame(pod_results_combine, columns = ['ranking'])
     pod_results_combine ['pod'] = [columns_common[ranking[i]] for i in range(K)]
     pod_results_combine ['score'] = [causal_score_combine[ranking[i]] for i in range(K)]
-    output_file = os.path.join(pathset, 'Pod_level_combine_ranking_{}.csv'.format(dataset))
+    output_file = os.path.join(output_dir, 'Pod_level_combine_ranking_{}.csv'.format(dataset))
     pod_results_combine.to_csv(output_file)
     
     info_all = {
             'columns': columns_common, 
             'score': causal_score_combine}
     metric_file ='inrc_pod_all'
-    output_file = os.path.join(pathset, metric_file)        
+    output_file = os.path.join(output_dir, metric_file)        
     np.save(output_file+'.npy', info_all)
 

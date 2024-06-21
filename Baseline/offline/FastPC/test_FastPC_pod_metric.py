@@ -25,6 +25,7 @@ if __name__ == '__main__':
     metric_data = {}
     columns_common = {}
     pathset = args.output_dir
+    path_dirs = args.path_dir
     if not(os.path.exists(pathset)):
         os.mkdir(pathset)
 
@@ -39,7 +40,7 @@ if __name__ == '__main__':
         label = 'Book_Info_product'
     else:
         raise 'Incorret Dataset Error'
-    path_dirs = args.path_dir
+
     
     #Find common pods    
     for metric, weight in POD_METRIC_FILE.items():

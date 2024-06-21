@@ -1,0 +1,14 @@
+label: ratings.book-info.svc.cluster.local:9080/*
+path_dirs: ../Log_Metric_DAG/data/1203/common_log_metric_data.pkl
+name: Pod_Name
+online_start: 1638496286
+failure_time: 1638524328
+metrics:
+  cpu_usage: 1
+  memory_usage: 1
+  rate_transmitted_packets: 1
+  rate_received_packets: 1
+  received_bandwidth: 1
+  # transmit_bandwidth: 1
+root_cause: mongodb-v1-64c6b69879-p4wfp
+

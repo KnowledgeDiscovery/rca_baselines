@@ -1,0 +1,17 @@
+label: scenario8_app_request
+path_dirs: ./data/0124/common_log_metric_data.pkl
+name: Pod_Name
+online_start: 1706049401
+
+failure_time: 1706065851
+
+metrics:
+  cpu_usage: 1
+  disk_used: 1
+  diskio_reads: 1
+  diskio_writes: 1
+  memory_used: 1
+  netstat_established: 1
+  swap_used: 1
+root_cause: i-078923fb30cac1ede
+

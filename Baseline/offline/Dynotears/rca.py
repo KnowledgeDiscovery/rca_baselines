@@ -2,7 +2,6 @@
 import numpy as np
 import pandas as pd
 import networkx as nx
-from gnn_dag import GNNCI
 from causalnex.structure import dynotears
 from causalnex.structure.dynotears import from_pandas_dynamic
 from pyspot import DSpot, Spot
@@ -148,10 +147,12 @@ def generate_causal_graph(X: np.ndarray,
         lambda_w = args['lambda_w']
         lambda_a = args['lambda_a']
         max_iter = args['max_iter']
-
+        X = X.T
         X_lag = np.roll(X,1,axis=0)
         for lag_o in range(2,lag+1):
             X_lag = np.hstack((X_lag,np.roll(X,lag_o, axis=0)))
+        print('154, shape of X: ', X.shape)
+        print('155, shape of X_lag: ',X_lag.shape)
         W_est = dynotears.from_numpy_dynamic(X, X_lag, lambda_w, lambda_a, max_iter)
     elif method == 'fastpc':
         W_est = Fast_PC_Causal_Graph(pd.DataFrame(X),alpha=10**-6,cuda=True)

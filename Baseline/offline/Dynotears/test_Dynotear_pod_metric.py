@@ -4,36 +4,39 @@ from sklearn import preprocessing
 from rca import detect_individual_causal, generate_causal_graph, generate_Q, propagate_error
 from sklearn.feature_selection import VarianceThreshold
 import os
+import argparse
+
 
 if __name__ == '__main__':
-    dataset = '0524'
+
+    parser = argparse.ArgumentParser(description='Dynotear algorithm')
+    parser.add_argument('--dataset', type=str, default='20211203', help='name of the dataset')
+    parser.add_argument('--path_dir', type=str, default='../../../20211203/', help='path to the dataset')
+    parser.add_argument('--output_dir', type=str, default='./20211203_output/', help='path to save the results')
+    # Parse the arguments
+    args = parser.parse_args()
+    #st = time.time()
+    dataset = args.dataset
+    pathset = args.output_dir
+    path_dirs = args.path_dir
     #Assign weight for each metric: default equal weight
     POD_METRIC_FILE = {'cpu_usage': 1, 'memory_usage': 1, 'rate_transmitted_packets': 1, 'rate_received_packets': 1, 'received_bandwidth': 1, 'transmit_bandwidth': 1}
     metric_data = {}
     columns_common = {}
-    pathset = "./output/"
     if not(os.path.exists(pathset)):
         os.mkdir(pathset)
 
     #KPI label
-    if dataset == '1203':
-        # KPI label  for 1203
+    if dataset == '20211203':
         label = 'ratings.book-info.svc.cluster.local:9080/*'
-    elif dataset == '0606':
-        # KPI label for 0606
+    elif dataset == '20220606':
         label = 'reviews-v3'
-    elif dataset == '0524':
-        # KPI label for 0606
-        # root cause: catalogue-85fd4965b7-q8477
+    elif dataset == '20210524':
         label = 'Book_Info_product'
-    elif dataset == '0517':
-        # KPI label for 0606
+    elif dataset == '20220517':
         label = 'Book_Info_product'
     else:
         raise 'Incorret Dataset Error'
-    path_dirs = "/nfs/users/zach/aiops/data/{}/".format(dataset)
-    
-    
     
     #Find common pods    
     for metric, weight in POD_METRIC_FILE.items():
@@ -200,6 +203,7 @@ if __name__ == '__main__':
         print('Generating Causal Graph Done!')
         # threshold top K
         threshold_factor = 0.3
+        print(cg)
         K = int(threshold_factor*len(cg.reshape(-1)))
         threshold = sorted(cg.reshape(-1), reverse=True)[K-1] 
         W_save = np.array(cg.transpose())

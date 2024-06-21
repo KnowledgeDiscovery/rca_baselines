@@ -3,43 +3,74 @@ import sys
 import numpy as np
 import pandas as pd
 import torch
-# from sklearn import preprocessing
-from castle.algorithms import DAG_GNN, Notears, GAE, GOLEM
+from castle.algorithms import DAG_GNN, Notears, GOLEM
 import time
 import rbo
 import os
-# from DJModel import DJModel
-# from lbfgsb_scipy import LBFGSBScipy
-from sklearn.preprocessing import MinMaxScaler
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(BASE_DIR)
-from dj_toolkit.read_utils import read_aiops_data
-from dj_toolkit.rca_utils import *
+# from sklearn.preprocessing import MinMaxScaler
+from read_utils import read_aiops_data
+from rca_utils import *
 import logging
+import argparse
 
 
-data_samples = ['0901','0517','0606','1203','0524']
-models = ['NOTEARS','GOLEM']
+if __name__ == '__main__':
 
-logger = logging.getLogger(__name__)
-logger.setLevel(level=logging.INFO)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-#FileHandler
-file_handler = logging.FileHandler('./baseline_logs/baseline_{}.log'.format('online_model'),mode='w')
-file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
-# StreamHandler
-stream_handler = logging.StreamHandler()
-stream_handler.setFormatter(formatter)
-logger.addHandler(stream_handler)
+    parser = argparse.ArgumentParser(description='Dynotear algorithm')
+    parser.add_argument('--dataset', type=str, default='20211203', help='name of the dataset')
+    parser.add_argument('--path_dir', type=str, default='../../20211203/', help='path to the dataset')
+    parser.add_argument('--output_dir', type=str, default='./20211203_output/', help='path to save the results')
+    parser.add_argument('--compressed_data_size', type=int, default=300, help='Individual metric compressed data size')
+    parser.add_argument('--method', type=str, default='NOTEARS', help='NOTEARS or GOLEM, default is NOTEARS')
+    # Parse the arguments
+    args = parser.parse_args()
+    #st = time.time()
+    dataset = args.dataset
+    output_dir = args.output_dir
+    path_dirs = args.path_dir
+    #Assign weight for each metric: default equal weight
+    POD_METRIC_FILE = {'cpu_usage': 1, 'memory_usage': 1, 'rate_transmitted_packets': 1, 'rate_received_packets': 1, 'received_bandwidth': 1, 'transmit_bandwidth': 1}
+    metric_data = {}
+    columns_common = {}
+    if not(os.path.exists(output_dir)):
+        os.mkdir(output_dir)
+
+    #KPI label
+    if dataset == '20211203':
+        label = 'ratings.book-info.svc.cluster.local:9080/*'
+    elif dataset == '20220606':
+        label = 'reviews-v3'
+    elif dataset == '20210524':
+        label = 'Book_Info_product'
+    elif dataset == '20220517':
+        label = 'Book_Info_product'
+    else:
+        raise 'Incorret Dataset Error'
+        
+    data_samples = ['0901','0517','0606','1203','0524']
+    models = [args.method]
+
+    logger = logging.getLogger(__name__)
+    logger.setLevel(level=logging.INFO)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    #FileHandler
+    file_handler = logging.FileHandler('./{}/baseline_online_model.log'.format(args.output_dir),mode='w')
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+    # StreamHandler
+    stream_handler = logging.StreamHandler()
+    stream_handler.setFormatter(formatter)
+    logger.addHandler(stream_handler)
 
 
-for model_name in models:
-    logger.info("{} model start!".format(model_name))
-    for data_sample_name in data_samples:
+    for model_name in models:
+        logger.info("{} model start!".format(model_name))
+        # for data_sample_name in data_samples:
+        data_sample_name = args.dataset
         logger.info("{} data sample has started!".format(data_sample_name))
-        data, metrics, real_rc, label, start_time, end_time = read_aiops_data('../config/data_config_{}.yaml'.format(data_sample_name),'all')
-        metric_dags = load_metric_dags('../Initial_DAG/',metrics,90)
+        
+        data, metrics, real_rc, label, start_time, end_time = read_aiops_data('./config/data_config_{}_freq_gs.yaml'.format(data_sample_name),'all', path_dirs)
+        metric_dags = load_metric_dags('./{}/'.format(output_dir),metrics,90)
 
 
         start_point = 20000
@@ -57,7 +88,7 @@ for model_name in models:
         learning_rate = 0.001
         patch = 100
         alpha = 0.4
-        save_path = './baseline_results/{}_online/{}/'.format(model_name,data_sample_name)
+        save_path = args.output_dir
         make_dir(save_path)
         ranked_list = []
 
@@ -87,7 +118,7 @@ for model_name in models:
                 else:
                     metric_total_data[metric] = torch.cat((metric_total_data[metric],torch.from_numpy(s2_data).float()))
 
-                ind_scores[metric] = np.array(individual_root_cause_analysis(metric_total_data[metric], sensors)['ind_score'])
+                ind_scores[metric] = np.array(individual_root_cause_analysis(metric_total_data[metric], sensors, args.compressed_data_size)['ind_score'])
                 metric_weights.append([np.max(ind_scores[metric], axis=0)])
                 valid_metrics.append(metric)
 
@@ -106,7 +137,7 @@ for model_name in models:
                 if model_name == 'NOTEARS':
                     dj_model = Notears(max_iter=300)
                 elif model_name == 'GOLEM':
-                    dj_model = GOLEM(num_iter=300,device_type='gpu')
+                    dj_model = GOLEM(num_iter=300, device_type=device)
 
                 metric_models[metric] = dj_model
 
