@@ -36,7 +36,7 @@ You need to download both log and metric data if you would like to test the perf
 
 #### Step 2: Use the code in IT folder to preprocess the log data. 
 ```
-      cd ./IT/data_preprocessing
+cd ./IT/data_preprocessing
 ```
 
 #### Step 3: Extract useful log information (such as pod/node names, log messages, etc.) from original elasticsearch log (json format) 
@@ -79,18 +79,18 @@ python log_golden_frequency.py --root_path ./input_path/  --output_dir ./output_
 #### Step 6. Evalute the performance of FastPC on the Case 20211203 with metric data only:
 - Notice that you need to change the path of data, dataset name and output directory. 
 - 
-    ```
-    python test_FastPC_pod_metric.py  --dataset 20211203 --path_dir CHANGE_PATH_TO_DATASET_DIRECTORY --output_dir CHANGE_PATH_TO_OUTPUT_DIRECTORY
-    ```
+```
+python test_FastPC_pod_metric.py  --dataset 20211203 --path_dir CHANGE_PATH_TO_DATASET_DIRECTORY --output_dir CHANGE_PATH_TO_OUTPUT_DIRECTORY
+```
 You may also test the performance of FastPC with log data or two modalities with the following command:
-  ```
-    python test_FastPC_pod_log.py  ## for log data only
-    python test_FastPC_pod_combine.py  ## for both metric and log data
+```
+python test_FastPC_pod_log.py  ## for log data only
+python test_FastPC_pod_combine.py  ## for both metric and log data
 ```
 #### Step 7. Check the results
 The results will be stored in the csv file as follows:
 ```
-       ./Baseline/offline/output/Pod_level_combine_ranking.csv
+./Baseline/offline/output/Pod_level_combine_ranking.csv
 ```
 The root cause for 20211203 (MongoDB-v1) can be found in the readme.pptx file in the folder of downloaded preprocessed data.
 
