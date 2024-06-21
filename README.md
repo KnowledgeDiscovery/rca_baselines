@@ -78,7 +78,6 @@ python log_golden_frequency.py --root_path ./input_path/  --output_dir ./output_
 
 #### Step 6. Evalute the performance of FastPC on the Case 20211203 with metric data only:
 - Notice that you need to change the path of data, dataset name and output directory. 
-- 
 ```
 python test_FastPC_pod_metric.py  --dataset 20211203 --path_dir CHANGE_PATH_TO_DATASET_DIRECTORY --output_dir CHANGE_PATH_TO_OUTPUT_DIRECTORY
 ```
