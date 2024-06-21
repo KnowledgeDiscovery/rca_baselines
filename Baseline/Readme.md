@@ -34,7 +34,14 @@ This folder contains the baseline methods for Lemma-RCA evaluation. We provide s
     ```
 
 2. **Online Baselines**:
+   #### Step 1: Run the following command to generate the intialize DAG graph:
+    ```
+        python main_dag.py
+    ```
+    Notice that you need to change the flags, including dataset name, dataset path and output directory. The default value is for case 20211203.
+   #### Step 2: Run the following command to evaluate Notears or GOLEM:
     - NOTEARS<sup>* </sup> and GOLEM<sup>*</sup>
     ```
-        python Test_notears_Golem.py
+        python Test_notears_Golem.py --method NOTEARS
     ```
+    Notice that you need to change the flags, including dataset name, dataset path, output directory and method. The default value is for case 20211203.
