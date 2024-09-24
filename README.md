@@ -87,7 +87,7 @@ python test_FastPC_pod_log.py  ## for log data only
 python test_FastPC_pod_combine.py  ## for both metric and log data
 ```
 
-##### If you encounter the error regarding "name 'LIBSPOT' is not defined", please double-check if you are running the code in the directory of FastPC. We observe such an error if the command is 'python ./FastPC/test_FastPC_pod_log.py' running in the directory of './rca_baselines/Baseline/offline/'.
+##### If you encounter the error regarding "name 'LIBSPOT' is not defined", please double-check if you are running the code in the directory of FastPC. We observe such an error if the command is 'python FastPC/test_FastPC_pod_log.py' running in the directory of './rca_baselines/Baseline/offline/'.
 #### Step 7. Check the results
 The results will be stored in the csv file as follows:
 ```
