@@ -1,6 +1,6 @@
 # Nezha
 
-This repository is the basic implementation of our publication in `FSE'23` conference paper `Nezha: Interpretable Fine-Grained Root Causes Analysis for Microservices on Multi-Modal Observability Data`
+This repository is the basic implementation of our publication in `FSE'23` conference paper [Nezha: Interpretable Fine-Grained Root Causes Analysis for Microservices on Multi-Modal Observability Data](./FSE2023_Nezha.pdf)
 
 ## Description
 
@@ -136,7 +136,7 @@ The label of `checkoutservice` means that the label `return` fault of `checkouts
 │   ├── 2022-08-23
 │   ├── 2023-01-29
 │   ├── 2023-01-30
-│   ├── root_cause_hipster.json: label at inner-service level for hipster
+│   ├── root_cause_hipster.json: label at inner-service level for OnlineBoutique
 │   └── root_cause_ts.json: label at inner-service level for ts
 ├── rca_data
 │   ├── 2022-08-22

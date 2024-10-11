@@ -478,14 +478,14 @@ def data_integrate(trace_file, trace_id_file, log_file, alarm_list, ns,log_templ
     :return
         list of event graph
     """
-    logger.info(alarm_list)
+    # logger.info(alarm_list)
     # alarm_list = []
     trace_id_reader = pd.read_csv(
         trace_id_file, index_col=False, header=None, engine='c')
-    trace_reader = pd.read_csv(
-        trace_file, index_col='TraceID', usecols=['TraceID', 'SpanID', 'ParentID', 'PodName', 'StartTimeUnixNano', 'EndTimeUnixNano', 'OperationName'],engine='c')
     log_reader = pd.read_csv(log_file, index_col='SpanID', usecols=[
         'TimeUnixNano', 'SpanID', 'Log'], engine='c')
+    trace_reader = pd.read_csv(
+        trace_file, index_col='TraceID', usecols=['TraceID', 'SpanID', 'ParentID', 'PodName', 'StartTimeUnixNano', 'EndTimeUnixNano', 'OperationName'],engine='c')
     log_sequences = []
     traces = []
     # print(datetime.datetime.now())
@@ -501,9 +501,9 @@ def data_integrate(trace_file, trace_id_file, log_file, alarm_list, ns,log_templ
     # graph = generate_event_graph(trace)
     # event_graphs.append(graph)
 
-    with concurrent.futures.ProcessPoolExecutor(max_workers=64) as executor1:
+    with concurrent.futures.ProcessPoolExecutor(max_workers=16) as executor1:
         futures1 = {executor1.submit(
-            get_events_within_trace, trace_reader, log_reader, traceid, alarm_list, ns,log_template_miner) for traceid in trace_id_reader[0]}
+            get_events_within_trace, trace_reader, log_reader, traceid, alarm_list, ns, log_template_miner) for traceid in trace_id_reader[0]}
 
         for future1 in concurrent.futures.as_completed(futures1):
             trace = future1.result()
@@ -511,7 +511,7 @@ def data_integrate(trace_file, trace_id_file, log_file, alarm_list, ns,log_templ
                 log_sequences.append(trace)
         executor1.shutdown()
 
-    with concurrent.futures.ProcessPoolExecutor(max_workers=64) as executor2:
+    with concurrent.futures.ProcessPoolExecutor(max_workers=16) as executor2:
         futures2 = {executor2.submit(
             generate_event_graph, trace,log_template_miner) for trace in log_sequences}
 
