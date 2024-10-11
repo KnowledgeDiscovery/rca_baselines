@@ -328,10 +328,10 @@ def evaluation(normal_time_list, fault_inject_list, ns,log_template_miner, file_
     logger.info("%s", top_list)
     print('-------- Results ---------')
     if len(top_list) > 0:
-        print('The rank of the root cause ({}) is '.format(root_cause), top_list[0])
+        print('The rank of the root cause is ', top_list[0])
     else:
         # print('Fail to detect the root cause.')
-        print('The rank of the root cause ({}) is '.format(root_cause), pod_num)
+        print('The rank of the root cause is ', pod_num)
     # top5 = 0
     # top1 = 0
     # top3 = 0
