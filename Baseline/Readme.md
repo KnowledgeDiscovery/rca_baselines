@@ -32,7 +32,7 @@ This folder contains the baseline methods for Lemma-RCA evaluation. We provide s
     ```
         python main.py
     ```
-    ## for Nezha, we provide the demo code for the case 20240124. Due to inconsistant filename for each case, you may need to change the name of the folder for each case accordingly. 
+    For Nezha, we provide the demo code for the case 20240124. Due to inconsistant filename for each case, you may need to change the name of the folder for each case accordingly. 
 ##### If you encounter the error regarding "name 'LIBSPOT' is not defined", please double-check if you are running the code in the directory of FastPC. We observe such an error if the command is 'python FastPC/test_FastPC_pod_log.py' running in the directory of './rca_baselines/Baseline/offline/'.
 2. **Online Baselines**:
    #### Step 1: Run the following command to generate the intialize DAG graph:
