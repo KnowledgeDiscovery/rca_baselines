@@ -142,15 +142,8 @@ If you use LEMMA-RCA in your work, please cite our paper:
 
 Lecheng Zheng, Zhengzhang Chen, Dongjie Wang, Chengyuan Deng, Reon Matsuoka, and Haifeng Chen: LEMMA-RCA: A Large Multi-modal Multi-domain Dataset for Root Cause Analysis. CoRR abs/2406.05375 (2024)
 
-### References
-
-[1] Dongjie Wang, Zhengzhang Chen, Yanjie Fu, Yanchi Liu, Haifeng Chen: Incremental Causal Graph Learning for Online Root Cause Analysis. KDD 2023: 2269-2278.
-
-[2] Dongjie Wang, Zhengzhang Chen, Jingchao Ni, Liang Tong, Zheng Wang, Yanjie Fu, Haifeng Chen: Interdependent Causal Networks for Root Cause Localization. KDD 2023: 5051-5060.
-
 ### License
 
-Creative Commons Attribution-NonCommercial (CC BY-NC) 4.0 International License
+Creative Commons Attribution-NoDerivatives (CC BY-ND) 4.0 International License
 
-You can not use the code and data for commercial purposes.
 
