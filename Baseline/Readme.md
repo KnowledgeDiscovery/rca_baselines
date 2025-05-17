@@ -2,12 +2,16 @@
 
 This folder contains the baseline methods for Lemma-RCA evaluation with both single- and multi-modal settings.
 
-    - FastPC: 
+    - Baro: 
     ```
-        python test_FastPC_pod_metric.py ## for metric data only
-        python test_FastPC_pod_log.py  ## for log data only
-        python test_FastPC_pod_combine.py  ## for both metric and log data
+        cd ./metric_only
+        python baro_main_metric.py ## for metric data only
+        cd ./log_only
+        python baro_main_log.py  ## for log data only
+        cd ./multimodal
+        python baro_main_combined.py  ## for both metric and log data
     ```
+    
 
     - Nezha:
     ```
