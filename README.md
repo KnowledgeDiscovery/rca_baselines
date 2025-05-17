@@ -24,7 +24,7 @@ LEMMA-RCA covers two domains and we provide both the raw data and preprocessed d
 
 
 ### Unified Evaluation
-LEMMA-RCA datasets are evaluated with eight causal learning baselines in four settings: online/offline with single/multiple modality data.
+Six baseline methods are evaluated on LEMMA-RCA under various single- and multi-modal configurations.
 
 ### Guideline for Evaluation 
 Example: Using FastPC to evalute the Performance of Case 20211203 in Product Review
