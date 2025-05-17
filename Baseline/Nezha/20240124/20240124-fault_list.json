@@ -1,0 +1,10 @@
+{
+    "2024-01-24": [
+        {
+            "inject_time": "2024-01-24 03:10:51",
+            "inject_timestamp": "1706087451",
+            "inject_pod": "ip-10-1-100-109.ap-northeast-1.compute.internal",
+            "inject_type": "infinite loop bug"
+        }
+    ]
+}
