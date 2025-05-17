@@ -58,3 +58,6 @@ This folder contains the baseline methods for Lemma-RCA evaluation with both sin
     
 ##### If you encounter the error regarding "name 'LIBSPOT' is not defined", please double-check if you are running the code in the directory of FastPC. 
 
+#### If you fail to install pyrca package in windows, please use the following command:
+#### "pip install sfr-pyrca --use-pep517 git+https://github.com/SchmollerLab/python-javabridge-windows"
+
