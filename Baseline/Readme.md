@@ -1,6 +1,6 @@
 # Baselines 
 
-This folder contains the baseline methods for Lemma-RCA evaluation with both single- and multi-modal settings.
+This folder contains the baseline methods for Lemma-RCA datasets evaluation with both single- and multi-modal settings. Note that SWAT and WADI datasets comply with single-modal setting.
 
     - FastPC: 
     ```
@@ -55,7 +55,23 @@ This folder contains the baseline methods for Lemma-RCA evaluation with both sin
         python main.py
     ```
     For Nezha, we provide the demo code for the case 20240124. Due to inconsistant filename for each case, you may need to change the name of the folder for each case accordingly. 
-    
+
+To run the baseline methods for SWAT and WADI datasets, the only difference is the data loader and the labels for evaluation. The labels are given in the corresponding scripts. For the Baro method:
+
+    - Baro for SWAT & WADI: 
+    ```
+        python baro.py 
+        python baro-evaluation.py
+    ```
+
+The RCD, epsilon_diagnosis, CIRCA methods are included in the pyrca package. Simply run:
+
+    - Baro for SWAT & WADI: 
+    ```
+        python pyrca-main.py 
+        python pyrca-evaluation.py
+    ```
+
 ##### If you encounter the error regarding "name 'LIBSPOT' is not defined", please double-check if you are running the code in the directory of FastPC. 
 
 #### If you fail to install pyrca package in windows, please use the following command:
