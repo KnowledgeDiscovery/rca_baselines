@@ -1,0 +1,19 @@
+label: book_info
+log_label: book_info
+metric_path: ../../data/20231207/
+golden_signal_path: ../../data/20231207/pod_level_log_golden_signal.npy
+frequency_path: ../../data/20231207/pod_level_log_frequency.npy
+kpi_path: ../../data/20231207/kpi.csv
+name: Pod_Name
+online_start: 1707184348
+failure_time: 1707196841
+
+metrics:
+  cpu_usage: 1
+  memory_usage: 1
+  rate_transmitted_packets: 1
+  rate_received_packets: 1
+  received_bandwidth: 1
+  transmit_bandwidth: 1
+root_cause: details-v1-aggregated
+

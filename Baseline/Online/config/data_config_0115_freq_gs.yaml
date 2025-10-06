@@ -1,0 +1,18 @@
+label: book_info
+log_label: ratings.book-info.svc.cluster.local:9080/*
+metric_path: ../../data/20240115/
+golden_signal_path: ../../data/20240115/pod_level_log_golden_signal.npy
+frequency_path: ../../data/20240115/pod_level_log_frequency.npy
+kpi_path: ../../data/20240115/kpi.csv
+name: Pod_Name
+online_start:  1705208021
+failure_time: 1705217199
+metrics:
+  cpu_usage: 1
+  memory_usage: 1
+  rate_transmitted_packets: 1
+  rate_received_packets: 1
+  received_bandwidth: 1
+  transmit_bandwidth: 1
+root_cause: scenario10-malware-deployment-57db4df9f4-p8h7h
+
